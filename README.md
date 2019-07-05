@@ -1,6 +1,6 @@
 # MeMAD Metadata Interchange Formats
 
-[![MeMAD](https://pbs.twimg.com/profile_images/950264367261548546/bcBS5FT__400x400.jpg)](https://memad.eu)
+[![MeMAD](img/logo-small.png)](https://memad.eu)
 
 This repository contains definitions of the interchange formats used for the EU H2020 MeMAD projects. It also provides examples of each of these formats such that component developers (inside the project or external integrators) can easily get acqainted with the formats and implement them in their systems. 
 
