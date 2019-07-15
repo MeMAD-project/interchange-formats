@@ -1,0 +1,51 @@
+# Example of IO10_Text with detected and disambiguated named entities metadata definition
+# I.e., this format represents output from a NER process, which annotates a given text and
+# possibly also references a media timeline.
+
+@prefix oa:      <https://www.w3.org/ns/oa> .
+@prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
+@prefix nif:     <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+@prefix itsrdf:  <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nerd:    <http://nerd.eurecom.fr/ontology#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema> .
+
+<http://data.memad.eu/media/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8> a ebucore:MediaResource .
+
+<http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8> a ebucore:EditorialObject ; 
+    ebucore:isInstantiatedBy <http://data.memad.eu/media/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8> ;
+    ebucore:hasRelatedTextLine <http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8/textline/9> .
+
+<http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8/textline/9> a ebucore:TextLine ;
+    ebucore:textLineContent <http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8/textline/9/content> ;
+    ebucore:textLineStartTime "08:01:37"^^xsd:time ;
+    ebucore:textLineEndTime "08:01:52"^^xsd:time ;
+    ebucore:textLineLanguage "fr"^^xsd:language .
+
+<http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8/textline/9/content>
+	a nif:String, nif:Context ;
+    nif:isString "Jean-Yves Le Drian vient d'arriver en Centrafrique un déplacement surprise du ministre français de la Défense , quelques jours seulement après le meurtre de la journaliste 1000 Lepage Yves Le Drian doit rencontrer les soldats de l'opération Gary avant de regagner Paris dans la soirée , l'actualité internationale avec ce dramatique accident d'un autocar en Colombie 32 enfants appartenant à une communauté religieuse ont péri dans l'incendie du véhicule catastrophe dont les circonstances restent pour l'instant inconnue Frédéric Vion ." .
+
+<http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8/textline/9/annotation/1>
+	a nif:OffsetBasedString, nif:Annotation, nif:EntityOccurrence ;
+    nif:referenceContext <http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8/textline/9/content> ;
+    nif:beginIndex "0"^^xsd:integer ;
+    nif:endIndex "18"^^xsd:integer ;
+    nif:anchorOf "Jean-Yves Le Drian"^^xsd:string ;
+    # NER results
+    itsrdf:taClassRef nerd:Person ;
+    nif:taClassConf "0.95"^^xsd:decimal ;
+    nif:taIdentProv "NER System" ;
+    # NED results
+    itsrdf:taIdentRef <http://www.wikidata.org/wiki/Q559040> ;
+    nif:taIdentConf "0.9"^^xsd:decimal ;
+    nif:taIdentProv "NED System" ;
+    itsrdf:taSource "Wikidata" .
+
+<http://data.memad.eu/annotation/cf9a6498703451845a58aafd0bc9412600dfb2f6> a oa:Annotation ;  # Annotation UUID is generated from a hashing for the annotatedBy and annotatedAt values
+    oa:annotatedBy <http://data.memad.eu/organization/EURECOM> ;
+    oa:annotatedAt "2019-05-27"^^xsd:date ;
+    oa:motivatedBy oa:tagging ;
+    oa:hasTarget <http://data.memad.eu/media/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8> ; # and to the media fragment if we can identify the segment on which the tag appears
+    oa:hasBody   <http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8/textline/9/annotation/1> .
+
+    
