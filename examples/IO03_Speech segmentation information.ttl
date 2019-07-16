@@ -1,0 +1,33 @@
+# Example of IO03_Speech segmentation information
+# I.e., this format represents output from a speech segmentation process, which annotates an audio stream
+# with speech-related classfications and references the media timeline.
+
+@prefix oa:      <https://www.w3.org/ns/oa> .
+@prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
+@prefix nif:     <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+@prefix itsrdf:  <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nerd:    <http://nerd.eurecom.fr/ontology#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema> .
+@prefix memad:   <https://memad.eu/ontology#> .
+
+<http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8/speech-annotation/d1c36571-935c-489f-a222-efd1158c38aa>
+	a nif:Annotation;
+    nif:anchorOf "Male speech, man speaking"^^xsd:string ; # A label of the detected speech, e.g., the same as the taIdent field if no direct alternatives exist.
+    # Speech classification/segmentation results
+    itsrdf:taIdentRef <https://research.google.com/audioset/m/05zppz> ; # Refer to an explicit resource if the class is known in an ontology
+    itsrdf:taIdent "Male speech, man speaking"^^xsd:string ;
+    itsrdf:taClassRef memad:AudioType ; # define a MeMAD class for identifiying that we are classifying audio here?
+    nif:taClassConf "0.95"^^xsd:decimal ;
+    nif:taIdentProv "INA Speech Segmentation" .
+
+<http://data.memad.eu/annotation/speech-annotation/d1c36571-935c-489f-a222-efd1158c38aa> a oa:Annotation ;  
+    oa:annotatedBy <http://data.memad.eu/organization/INA> ;
+    oa:annotatedAt "2019-05-27"^^xsd:date ;
+    oa:motivatedBy oa:classifying ;
+    oa:hasTarget <http://data.memad.eu/media/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8#t=npt:120,121.3&track=1> ; 
+                                                                                     # and to the media fragment because we need to know where the classification applies
+                                                                                     # i,e., from 120s to 121s 300ms.
+                                                                                     # Optionally, (audio) tracks are allowed to better identify 
+                                                                                     # where the annotation applies in more complex source files 
+                                                                                     # (e.g., with multiple languages or mixes).
+    oa:hasBody   <http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8/speech-annotation/d1c36571-935c-489f-a222-efd1158c38aa> .
