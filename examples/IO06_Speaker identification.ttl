@@ -1,0 +1,44 @@
+# Example of IO06_Speaker identification metadata definition
+# I.e., this format represents output from a speaker identification process, which annotates an audio stream
+# with identified speakers and references the media timeline.
+
+# Remarks:
+#   - The fact that we cannot clearly identify that this annotation is the
+#     result of a speaker recognition is an issue. Not all annotations should be used all 
+#     the time for any process (e.g., visual person identification cannot be used with ASR data)
+#     so we should now what kind of annotation is concerned (which we don't have from only a 
+#     combination of the taIdentProv, motivatedBy or taClassRef properties.
+#     Solution: add additional taClassRef fields to describe the kind of detection done?
+#
+
+@prefix oa:      <https://www.w3.org/ns/oa#> .
+@prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
+@prefix nif:     <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+@prefix itsrdf:  <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nerd:    <http://nerd.eurecom.fr/ontology#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix memad:   <https://memad.eu/ontology#> .
+
+<http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8/speaker-identification/75f12c81-419f-4a66-a02d-3e3a65f18261>
+	a nif:Annotation;
+    nif:anchorOf "Jean-Yves Le Drian"^^xsd:string ; # A label of the detected person.
+    itsrdf:taIdentRef <http://www.wikidata.org/wiki/Q559040> ;    
+    itsrdf:taIdent "Jean-Yves Le Drian"^^xsd:string ;   # if the person could not be disambiguated, it can be identified using a string label
+    itsrdf:taClassRef nerd:Person, memad:SpeakerIdentification ; # define an additional MeMAD class for 
+                                                                 # pinpointing that we have detected a person in the audio here (a opposed to e.g., in the video)?
+    nif:taClassConf "0.75"^^xsd:decimal ;
+    nif:taIdentProv "AALTO Speaker Identification" ;
+    itsrdf:taSource "Wikidata" .
+    
+<http://data.memad.eu/annotation/speech-annotation/75f12c81-419f-4a66-a02d-3e3a65f18261> a oa:Annotation ;  
+    oa:annotatedBy <http://data.memad.eu/organization/AALTO> ;
+    oa:annotatedAt "2019-05-27"^^xsd:date ;
+    oa:motivatedBy oa:classifying ;
+    oa:hasTarget <http://data.memad.eu/media/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8#t=npt:120,121.3&track=1> ; 
+                                                                                     # and to the media fragment because we need to know where the classification applies
+                                                                                     # i,e., from 120s to 121s 300ms.
+                                                                                     # Optionally, (audio) tracks are allowed to better identify 
+                                                                                     # where the annotation applies in more complex source files 
+                                                                                     # (e.g., with multiple languages or mixes).
+    oa:hasBody   <http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8/speech-annotation/75f12c81-419f-4a66-a02d-3e3a65f18261> .
+
