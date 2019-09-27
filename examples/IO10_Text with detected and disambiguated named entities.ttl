@@ -2,12 +2,12 @@
 # I.e., this format represents output from a NER process, which annotates a given text and
 # possibly also references a media timeline.
 
-@prefix oa:      <https://www.w3.org/ns/oa> .
+@prefix oa:      <https://www.w3.org/ns/oa#> .
 @prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
 @prefix nif:     <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
 @prefix itsrdf:  <http://www.w3.org/2005/11/its/rdf#> .
 @prefix nerd:    <http://nerd.eurecom.fr/ontology#> .
-@prefix xsd:     <http://www.w3.org/2001/XMLSchema> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 
 <http://data.memad.eu/media/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8> a ebucore:MediaResource .
 
