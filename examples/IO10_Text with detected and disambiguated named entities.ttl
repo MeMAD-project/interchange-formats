@@ -2,6 +2,7 @@
 # I.e., this format represents output from a NER process, which annotates a given text and
 # possibly also references a media timeline.
 
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix oa:      <https://www.w3.org/ns/oa#> .
 @prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
 @prefix nif:     <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
