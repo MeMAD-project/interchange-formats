@@ -2,7 +2,8 @@
 
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
-@prefix itsrdf:  <http://www.w3.org/2005/11/its/rdf#> .
+@prefix memad:   <https://memad.eu/ontology#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 
 <http://data.memad.eu/media/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8> a ebucore:MediaResource ;
