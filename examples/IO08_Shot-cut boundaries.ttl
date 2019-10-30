@@ -11,8 +11,6 @@
 
 <http://data.memad.eu/media/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8#t=npt:120,121.3&track=1> a ebucore:MediaFragment .
 
-<http://data.memad.eu/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8> a oa:Annotation ;
-
 <http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8> a ebucore:EditorialObject;
     ebucore:hasPart <http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8/shot/9>.
 
