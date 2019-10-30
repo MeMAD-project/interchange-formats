@@ -42,9 +42,9 @@
     itsrdf:taSource "Wikidata" .
 
 <http://data.memad.eu/annotation/cf9a6498703451845a58aafd0bc9412600dfb2f6> a oa:Annotation ;  # Annotation UUID is generated from a hashing for the annotatedBy and annotatedAt values
-    oa:annotatedBy <http://data.memad.eu/organization/EURECOM> ;
-    oa:annotatedAt "2019-05-27"^^xsd:date ;
-    oa:motivatedBy oa:tagging ;
+    dcterms:creator <http://data.memad.eu/organization/EURECOM> ;
+    dcterms:created "2019-05-27"^^xsd:date ;
+    dcterms:motivatedBy  oa:classifying, oa:identifying ;
     oa:hasTarget <http://data.memad.eu/media/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8> ; # and to the media fragment if we can identify the segment on which the tag appears
     oa:hasBody   <http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8/textline/9/annotation/1> .
 

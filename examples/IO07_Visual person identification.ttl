@@ -9,6 +9,7 @@
 #
 
 @prefix oa:      <https://www.w3.org/ns/oa#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
 @prefix nif:     <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
 @prefix itsrdf:  <http://www.w3.org/2005/11/its/rdf#> .
@@ -17,20 +18,19 @@
 @prefix memad:   <https://memad.eu/ontology#> .
 
 <http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8/person-identification/00a2c499-ba4d-482a-9492-0d454d55e291>
-	a nif:Annotation;
-    nif:anchorOf "Jean-Yves Le Drian"^^xsd:string ; # A label of the detected person.
-    itsrdf:taIdentRef <http://www.wikidata.org/wiki/Q559040> ;    
-    itsrdf:taIdent "Jean-Yves Le Drian"^^xsd:string ;   # if the person could not be disambiguated, it can be identified using a string label
-    itsrdf:taClassRef nerd:Person, memad:VisualIdentification ;  # define an additional MeMAD class for 
-                                                                 # pinpointing that we have detected a person in the image here (a opposed to e.g., in the audio)?
-    nif:taClassConf "0.99"^^xsd:decimal ;
-    nif:taIdentProv "EURECOM Face Recognittion" ;
+	a nif:Annotation, memad:VisualPersonIdentification;
+    rdf:value "Jean-Yves Le Drian"^^xsd:string ; # A label of the detected person.
+    itsrdf:taIdentRef <http://www.wikidata.org/wiki/Q559040> ;
     itsrdf:taSource "Wikidata" .
+    nif:taIdentConf "0.99"^^xsd:decimal ;
+    nif:taIdentProv "EURECOM Face Recognition" ;
+    # if the person doesn't have a URI, it can be identified using a string id and a source ontology
+    itsrdf:taIdent "Jean-Yves Le Drian"^^xsd:string ;   # if the person could not be disambiguated, it can be identified using a string label
     
 <http://data.memad.eu/annotation/speech-annotation/00a2c499-ba4d-482a-9492-0d454d55e291> a oa:Annotation ;  
-    oa:annotatedBy <http://data.memad.eu/organization/AALTO> ;
-    oa:annotatedAt "2019-05-27"^^xsd:date ;
-    oa:motivatedBy oa:classifying ;
+    dcterms:creator <http://data.memad.eu/organization/AALTO> ;
+    dcterms:created "2019-05-27"^^xsd:date ;
+    dcterms:motivatedBy oa:identifying ;
     oa:hasTarget <http://data.memad.eu/media/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8#t=npt:120,121.3&xywh=percent:25,25,40,50> ; 
                                                                                      # and to the media fragment because we need to know where the classification applies
                                                                                      # i,e., from 120s to 121s 300ms.
