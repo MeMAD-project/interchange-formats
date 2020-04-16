@@ -1,0 +1,27 @@
+# Example of IO08_Shot-cut boundaries metadata definition
+
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
+@prefix memad:   <https://memad.eu/ontology#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+<http://data.memad.eu/media/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8> a ebucore:MediaResource ;
+    ebucore:hasMediaFragment <http://data.memad.eu/media/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8#t=npt:120,121.3&track=1>.
+
+<http://data.memad.eu/media/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8#t=npt:120,121.3&track=1> a ebucore:MediaFragment .
+
+<http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8> a ebucore:EditorialObject;
+    ebucore:hasPart <http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8/shot/9>.
+
+<http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8/shot/9> a ebucore:Shot, memad:ShotCutAnnotation ;
+    ebucore:start "00:02:00"^^xsd:time ;
+    ebucore:end "00:02:01.3"^^xsd:time ;
+    ebucore:hasIdentifier "Shot ID";
+    ebucore:hasRelatedMediaFragment <http://data.memad.eu/media/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8#t=npt:120,121.3&track=1> ;
+    
+    dcterms:source "Annotation Model ID" ;
+    dcterms:creator <http://data.memad.eu/organization/AALTO> ;
+    dcterms:created "2019-10-27"^^xsd:date ;
+    dcterms:motivatedBy  oa:highlighting .
+    

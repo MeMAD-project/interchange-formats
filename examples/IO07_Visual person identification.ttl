@@ -8,6 +8,7 @@
 #     Solution: add additional taClassRef fields to describe the kind of detection done?
 #
 
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix oa:      <https://www.w3.org/ns/oa#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
@@ -17,15 +18,19 @@
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix memad:   <https://memad.eu/ontology#> .
 
+
+<http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8/person-annotation/00a2c499-ba4d-482a-9492-0d454d55e291> a ebucore:MediaFragment;
+    ebucore:isMediaFragmentOf <http://data.memad.eu/media/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8>.
+
 <http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8/person-identification/00a2c499-ba4d-482a-9492-0d454d55e291>
 	a nif:Annotation, memad:VisualPersonIdentification;
     rdf:value "Jean-Yves Le Drian"^^xsd:string ; # A label of the detected person.
     itsrdf:taIdentRef <http://www.wikidata.org/wiki/Q559040> ;
-    itsrdf:taSource "Wikidata" .
     nif:taIdentConf "0.99"^^xsd:decimal ;
     nif:taIdentProv "EURECOM Face Recognition" ;
     # if the person doesn't have a URI, it can be identified using a string id and a source ontology
-    itsrdf:taIdent "Jean-Yves Le Drian"^^xsd:string ;   # if the person could not be disambiguated, it can be identified using a string label
+    # itsrdf:taSource "Wikidata" ;
+    # itsrdf:taIdent "Jean-Yves Le Drian"^^xsd:string ;   # if the person could not be disambiguated, it can be identified using a string label
     
 <http://data.memad.eu/annotation/speech-annotation/00a2c499-ba4d-482a-9492-0d454d55e291> a oa:Annotation ;  
     dcterms:creator <http://data.memad.eu/organization/AALTO> ;
@@ -37,4 +42,4 @@
                                                                                      # Additionally, we provide coordinates of where the person was
                                                                                      # detected. Ideally, these coordinates can be varied across the time range
                                                                                      # of the annotation, but this might not be possible with Media Fragments atm.
-    oa:hasBody   <http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8/speech-annotation/00a2c499-ba4d-482a-9492-0d454d55e291> .
+    oa:hasBody   <http://data.memad.eu/fr2/8h00-le-journal/9d002c31a1cb79b1fb75778eed9f20e9a3d562e8/person-annotation/00a2c499-ba4d-482a-9492-0d454d55e291> .

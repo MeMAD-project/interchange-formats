@@ -11,6 +11,7 @@
 #     Solution: add additional taClassRef fields to describe the kind of detection done?
 #
 
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix oa:      <https://www.w3.org/ns/oa#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .

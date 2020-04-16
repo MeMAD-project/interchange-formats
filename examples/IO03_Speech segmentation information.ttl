@@ -2,6 +2,7 @@
 # I.e., this format represents output from a speech segmentation process, which annotates an audio stream
 # with speech-related classfications and references the media timeline.
 
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix oa:      <https://www.w3.org/ns/oa#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
