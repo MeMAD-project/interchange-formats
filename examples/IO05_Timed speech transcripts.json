@@ -1,0 +1,59 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "ebucore": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#",
+    "nif": "http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#",
+    "itsref": "http://www.w3.org/2005/11/its/rdf#",
+    "nerd": "http://nerd.eurecom.fr/ontology#",
+    "memad": "https://memad.eu/ontology#",
+  },
+  "@graph": [
+    {
+      "@id": "http://memad.eu/test-trans-para",
+      "@type": [ 
+        "ebucore:TextLine", 
+        "memad:SpeechParagraph"
+      ],
+      "ebucore:textLineContent": "Yeah, I think ...",
+      "ebucore:textLineStartTime": 37035,
+      "ebucore:textLineEndTime": 60000,
+      "ebucore:hasTextLineType": "<type from a SCOS thesaurus?>"
+      "memad:speaker": "<speaker-id>",
+      "foaf:gender": "Female",
+      "memad:language": "en",
+      "memad:speechParts": {
+        "@list": [
+            {
+                "@type": "memad:SpeechPart",
+                "ebucore:startNormalPlayTime": 37035,
+                "ebucore:duration": 8,
+                "memad:word": "Yeah, ",
+                "memad:SpeechPartType": "LEX",
+                "nif:taClassConf": 1.0,
+                "memad:Speaker": "<speaker1>"
+            },
+            {
+                "@type": "memad:SpeechPart",
+                "nif:taClassConf": 1.0,
+                "ebucore:duration": 5,
+                "ebucore:startNormalPlayTime": 37044,
+                "memad:Speaker": "speaker1",
+                "memad:SpeechPartType": "LEX",
+                "memad:word": "I "
+            },
+            {
+                "@type" : "memad:SpeechPart",
+                "nif:taClassConf" : 0.99,
+                "ebucore:duration" : 8,
+                "ebucore:startNormalPlayTime" : 37047,
+                "memad:Speaker" : "speaker1",
+                "memad:SpeechPartType" : "LEX",
+                "memad:word" : "think "
+            }
+        ]
+      }
+    }
+  ]
+}
