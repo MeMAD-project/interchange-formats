@@ -1,0 +1,49 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
+@prefix nif:     <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+@prefix itsrdf:  <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nerd:    <http://nerd.eurecom.fr/ontology#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix memad:   <https://memad.eu/ontology#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+
+
+
+
+<test-trans-para>  a                 ebucore:TextLine ;
+                   a                 memad:SpeechParagraph ;
+                   memad:Speaker     <speaker1>;
+                   foaf:gender       "Female";
+                   memad:language    "en";
+                   memad:speechParts [ a rdf:Seq;
+                                       rdf:li [
+                                            a                           memad:SpeechPart;
+                                            ebucore:startNormalPlayTime "37035"^^xsd:decimal;
+                                            ebucore:duration            "8"^^xsd:decimal;
+                                            memad:word                  "Yeah, ";
+                                            memad:SpeechPartType        "LEX";
+                                            nif:taClassConf             "1.0"^^xsd:decimal ;
+                                            memad:Speaker               <speaker1>
+                                       ];
+                                       rdf:li [
+                                            a                           memad:SpeechPart;
+                                            ebucore:startNormalPlayTime "37044"^^xsd:decimal;
+                                            ebucore:duration            "5"^^xsd:decimal;
+                                            memad:word                  "I ";
+                                            memad:SpeechPartType        "LEX";
+                                            nif:taClassConf             "1.0"^^xsd:decimal ;
+                                            memad:Speaker               <speaker1>
+                                       ];
+                                       rdf:li [
+                                            a                           memad:SpeechPart;
+                                            ebucore:startNormalPlayTime "37047"^^xsd:decimal;
+                                            ebucore:duration            "8"^^xsd:decimal;
+                                            memad:word                  "think ";
+                                            memad:SpeechPartType        "LEX";
+                                            nif:taClassConf             "0.99"^^xsd:decimal ;
+                                            memad:Speaker               <speaker1>
+                                       ];
+                                      ] .
+
+                                      
